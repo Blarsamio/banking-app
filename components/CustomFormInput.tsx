@@ -12,36 +12,38 @@ import { z } from "zod";
 const formSchema = authFormSchema('sign-up');
 
 
-interface CustomFormProps {
+interface CustomInputProps {
   control: Control<z.infer<typeof formSchema>>;
   name: FieldPath<z.infer<typeof formSchema>>;
   label: string;
   placeholder: string;
 }
 
-const CustomFormInput = ({ control, name, label, placeholder }: CustomFormProps) => {
+const CustomFormInput = ({ control, name, label, placeholder }: CustomInputProps) => {
   return (
     <FormField
       control={control}
-      key={name}
       name={name}
       render={({ field }) => (
         <div className="form-item">
-          <FormLabel className="form-label">{label}</FormLabel>
-          <div className="flex w-full flex-col"></div>
-          <FormControl>
-            <Input
-              type={name === "password" ? "password" : "text"}
-              placeholder={placeholder}
-              className="input-class"
-              {...field}
-            />
-          </FormControl>
-          <FormMessage className="form-message" {...field} />
+          <FormLabel className="form-label">
+            {label}
+          </FormLabel>
+          <div className="flex w-full flex-col">
+            <FormControl>
+              <Input
+                placeholder={placeholder}
+                className="input-class"
+                type={name === 'password' ? 'password' : 'text'}
+                {...field}
+              />
+            </FormControl>
+            <FormMessage className="form-message mt-2" />
+          </div>
         </div>
       )}
     />
-  );
+  )
 };
 
 export default CustomFormInput;
