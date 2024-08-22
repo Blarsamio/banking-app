@@ -54,6 +54,12 @@ const AuthForm = ({ type }: { type: string }) => {
       }
 
       if (type === "sign-in") {
+        const response = await signIn({
+          email: data.email,
+          password: data.password,
+        });
+
+        if(response) router.push("/");
       }
     } catch (error) {
       console.log(error);
@@ -93,10 +99,7 @@ const AuthForm = ({ type }: { type: string }) => {
       ) : (
         <>
           <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-8"
-            >
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               {type === "sign-up" && (
                 <>
                   <div className="flex gap-4">

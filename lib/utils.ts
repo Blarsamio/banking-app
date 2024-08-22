@@ -197,14 +197,14 @@ export const getTransactionStatus = (date: Date) => {
 
 export const authFormSchema = ( type: string ) => z.object({
   /// sign up
-  firstName: type === "sign-in" ? z.string().optional() : z.string().min(2),
-  lastName: type === "sign-in" ? z.string().optional() : z.string().min(2),
-  address1: type === "sign-in" ? z.string().optional() : z.string().min(2).max(50),
-  city: type === "sign-in" ? z.string().optional() : z.string().min(2).max(50),
-  state: type === "sign-in" ? z.string().optional() : z.string().min(2).max(2),
-  postalCode: type === "sign-in" ? z.string().optional() : z.string().min(2).max(6),
-  dateOfBirth: type === "sign-in" ? z.string().optional() : z.string().min(2),
-  ssn: type === "sign-in" ? z.string().optional() : z.string().min(2),
+  firstName: type === "sign-in" ? z.string().optional() : z.string().min(2, "First name must be at least 2 characters long"),
+  lastName: type === "sign-in" ? z.string().optional() : z.string().min(2, "Last name must be at least 2 characters long"),
+  address1: type === "sign-in" ? z.string().optional() : z.string().min(2, "Address must be at least 2 characters long").max(50, "Address must be at most 50 characters long"),
+  city: type === "sign-in" ? z.string().optional() : z.string().min(2, "City must be at least 2 characters long").max(50, "City must be at most 50 characters long"),
+  state: type === "sign-in" ? z.string().optional() : z.string().length(2, "State must be exactly 2 characters long"),
+  postalCode: type === "sign-in" ? z.string().optional() : z.string().min(2, "Postal code must be at least 2 characters long").max(6, "Postal code must be at most 6 characters long"),
+  dateOfBirth: type === "sign-in" ? z.string().optional() : z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Date of birth must be in the format YYYY-MM-DD"),
+  ssn: type === "sign-in" ? z.string().optional() : z.string().regex(/^\d{3}-\d{2}-\d{4}$/, "SSN must be in the format XXX-XX-XXXX"),
   /// sign in & sign up
   email: z.string().email(),
   password: z.string().min(8),
