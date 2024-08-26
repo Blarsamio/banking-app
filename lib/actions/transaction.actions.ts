@@ -20,8 +20,8 @@ export const createTransaction = async (
       TRANSACTION_COLLECTION_ID!,
       ID.unique(),
       {
-        channel: "online",
-        category: "transfer",
+        channel: "Online",
+        category: "Transfer",
         ...transaction,
       }
     );
