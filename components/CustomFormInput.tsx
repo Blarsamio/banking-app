@@ -4,13 +4,23 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import * as React from "react";
 import { Input } from "@/components/ui/input";
 import { authFormSchema } from "@/lib/utils";
-import { Control, FieldPath } from "react-hook-form";
+import { Control, FieldPath, Form } from "react-hook-form";
 import { z } from "zod";
+import { Calendar as CalendarIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { parse, format } from "date-fns";
 
-const formSchema = authFormSchema('sign-up');
-
+const formSchema = authFormSchema("sign-up");
 
 interface CustomInputProps {
   control: Control<z.infer<typeof formSchema>>;
@@ -19,22 +29,25 @@ interface CustomInputProps {
   placeholder: string;
 }
 
-const CustomFormInput = ({ control, name, label, placeholder }: CustomInputProps) => {
+export const CustomFormInput = ({
+  control,
+  name,
+  label,
+  placeholder,
+}: CustomInputProps) => {
   return (
     <FormField
       control={control}
       name={name}
       render={({ field }) => (
         <div className="form-item">
-          <FormLabel className="form-label">
-            {label}
-          </FormLabel>
+          <FormLabel className="form-label">{label}</FormLabel>
           <div className="flex w-full flex-col">
             <FormControl>
               <Input
                 placeholder={placeholder}
                 className="input-class"
-                type={name === 'password' ? 'password' : 'text'}
+                type={name === "password" ? "password" : "text"}
                 {...field}
               />
             </FormControl>
@@ -43,7 +56,68 @@ const CustomFormInput = ({ control, name, label, placeholder }: CustomInputProps
         </div>
       )}
     />
-  )
+  );
 };
 
-export default CustomFormInput;
+export const CustomDateInput = ({
+  control,
+  name,
+  label,
+  placeholder,
+}: CustomInputProps) => {
+  const [date, setDate] = React.useState<string>();
+
+  return (
+    <FormField
+      control={control}
+      name={name}
+      render={({ field }) => (
+        <div className="form-item flex-1">
+          <FormLabel className="form-label">{label}</FormLabel>
+          <div className="flex flex-col">
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant={"outline"}
+                  className={cn(
+                    "w-full justify-start text-left text-16 text-gray-500 rounded-lg border border-gray-300",
+                    !date && "text-gray-500"
+                  )}
+                >
+                  <CalendarIcon className="mr-2 h-4 w-4 text-gray-500" />
+                  {date ? (
+                    format(parse(date, "yyyy-MM-dd", new Date()), "PPP")
+                  ) : (
+                    <span className="text-gray-500">{placeholder}</span>
+                  )}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0" align="start">
+                <Calendar
+                  mode="single"
+                  captionLayout="dropdown-buttons"
+                  fromYear={1960}
+                  toYear={new Date().getFullYear()}
+                  selected={
+                    date
+                      ? parse(date, "yyyy-MM-dd", new Date())
+                      : new Date()
+                  }
+                  onSelect={(selectedDate) => {
+                    const formattedDate = format(selectedDate!, "yyyy-MM-dd");
+                    setDate(formattedDate);
+                    field.onChange(formattedDate);
+                  }}
+                  initialFocus
+                  disabled={false}
+                  className="bg-white text-gray-500"
+                />
+              </PopoverContent>
+            </Popover>
+            <FormMessage className="form-message mt-2" />
+          </div>
+        </div>
+      )}
+    />
+  );
+};

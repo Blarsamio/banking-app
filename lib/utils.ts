@@ -203,7 +203,7 @@ export const authFormSchema = ( type: string ) => z.object({
   city: type === "sign-in" ? z.string().optional() : z.string().min(2, "City must be at least 2 characters long").max(50, "City must be at most 50 characters long"),
   state: type === "sign-in" ? z.string().optional() : z.string().length(2, "State must be exactly 2 characters long"),
   postalCode: type === "sign-in" ? z.string().optional() : z.string().min(2, "Postal code must be at least 2 characters long").max(6, "Postal code must be at most 6 characters long"),
-  dateOfBirth: type === "sign-in" ? z.string().optional() : z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Date of birth must be in the format YYYY-MM-DD"),
+  dateOfBirth: type === "sign-in" ? z.string().optional() : z.string().min(2),
   ssn: type === "sign-in" ? z.string().optional() : z.string().regex(/^\d{3}-\d{2}-\d{4}$/, "SSN must be in the format XXX-XX-XXXX"),
   /// sign in & sign up
   email: z.string().email(),

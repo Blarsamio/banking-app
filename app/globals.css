@@ -43,7 +43,15 @@
   background: #7878a3;
 }
 
+.rdp-vhidden {
+  @apply hidden;
+}
+
 @layer utilities {
+  body {
+    @apply dark:bg-black-3 dark:text-gray-100;
+  }
+
   .input-class {
     @apply text-16 placeholder:text-16 rounded-lg border border-gray-300 text-gray-900 placeholder:text-gray-500;
   }
@@ -61,7 +69,7 @@
   }
 
   .header-2 {
-    @apply text-18 font-semibold text-gray-900;
+    @apply text-18 font-semibold text-gray-900 dark:text-white;
   }
 
   .text-10 {
@@ -114,11 +122,11 @@
   }
 
   .home-header {
-    @apply flex flex-col justify-between gap-8;
+    @apply flex flex-col justify-between gap-8 dark:text-white;
   }
 
   .total-balance {
-    @apply flex w-full items-center gap-4 rounded-xl border border-gray-200 p-4 shadow-chart sm:gap-6 sm:p-6;
+    @apply flex w-full items-center gap-4 rounded-xl border border-gray-200 dark:border-neutral-700 dark:bg-neutral-800 p-4 shadow-chart sm:gap-6 sm:p-6;
   }
 
   .total-balance-chart {
@@ -126,11 +134,11 @@
   }
 
   .total-balance-label {
-    @apply text-14 font-medium text-gray-600;
+    @apply text-14 font-medium text-gray-600 dark:text-neutral-200;
   }
 
   .total-balance-amount {
-    @apply text-24 lg:text-30 flex-1 font-semibold text-gray-900;
+    @apply text-24 lg:text-30 flex-1 font-semibold text-gray-900 dark:text-white;
   }
 
   .recent-transactions {
@@ -138,7 +146,7 @@
   }
 
   .view-all-btn {
-    @apply text-14 rounded-lg border border-gray-300 px-4 py-2.5 font-semibold text-gray-700;
+    @apply text-14 rounded-lg border border-gray-300 px-4 py-2.5 font-semibold text-gray-700 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-200;
   }
 
   .recent-transactions {
@@ -146,7 +154,7 @@
   }
 
   .recent-transactions-label {
-    @apply text-20 md:text-24 font-semibold text-gray-900;
+    @apply text-20 md:text-24 font-semibold text-gray-900 dark:text-white;
   }
 
   .recent-transactions-tablist {
@@ -155,7 +163,7 @@
 
   /* Right sidebar */
   .right-sidebar {
-    @apply no-scrollbar hidden h-screen max-h-screen flex-col border-l border-gray-200 xl:flex w-[355px] xl:overflow-y-scroll !important;
+    @apply no-scrollbar hidden h-screen max-h-screen flex-col border-l border-gray-200 xl:flex w-auto xl:overflow-y-scroll !important;
   }
 
   .profile-banner {
@@ -213,11 +221,11 @@
   }
 
   .header-box-title {
-    @apply text-24 lg:text-30 font-semibold text-gray-900;
+    @apply text-24 lg:text-30 font-semibold text-gray-900 dark:text-white;
   }
 
   .header-box-subtext {
-    @apply text-14 lg:text-16 font-normal text-gray-600;
+    @apply text-14 lg:text-16 font-normal text-gray-600 dark:text-neutral-200;
   }
 
   /* Bank Card */
@@ -235,16 +243,16 @@
 
   /* Bank Info */
   .bank-info {
-    @apply gap-[18px] flex p-4 transition-all border bg-blue-25 border-transparent;
+    @apply gap-[18px] flex p-4 transition-all border bg-blue-25 border-transparent dark:bg-neutral-800 dark:border dark:text-neutral-700;
   }
 
   /* Category Badge */
   .category-badge {
-    @apply flex-center truncate w-fit gap-1 rounded-2xl border-[1.5px] py-[2px] pl-1.5 pr-2;
+    @apply flex-center truncate w-fit gap-1 rounded-xl border-[1.5px] py-[2px] pl-1.5 pr-2;
   }
 
   .banktab-item {
-    @apply gap-[18px] border-b-2 flex px-2 sm:px-4 py-2 transition-all;
+    @apply gap-[18px] border-b-2 flex px-2 sm:px-4 py-2 transition-all border-gray-500;
   }
 
   /* Mobile nav */

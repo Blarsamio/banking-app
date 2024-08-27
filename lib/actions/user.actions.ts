@@ -173,6 +173,7 @@ export const createBankAccount = async ({
         shareableId,
       }
     );
+    return parseStringify(bankAccount);
   } catch (error) {
     console.error("Error", error);
   }
