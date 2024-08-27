@@ -51,7 +51,7 @@ const BankCard = ({
           width={316}
           height={190}
           alt="lines"
-          className="absolute top-0 left-0"
+          className="absolute top-0 left-0 dark:grayscale"
         />
       </Link>
       {showBalance }

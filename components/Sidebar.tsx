@@ -14,7 +14,7 @@ const Sidebar = ({ user }: SiderbarProps) => {
   return (
     <section className="sidebar">
       <nav className="flex flex-col gap-4">
-        <div className="flex flex-row gap-2">
+        <div className="flex lg:flex-row gap-2 flex-col justify-between">
           <Link
             className="mb-12 flex cursor-pointer items-center gap-2"
             href="/"
@@ -35,7 +35,7 @@ const Sidebar = ({ user }: SiderbarProps) => {
             pathname === item.route || pathname.startsWith(`${item.route}/`);
           return (
             <Link
-              className={cn("sidebar-link", { "bg-bank-gradient": isActive })}
+              className={cn("sidebar-link", { "dark:bg-neutral-800 dark:border dark:border-neutral-700 bg-bankGradient": isActive })}
               href={item.route}
               key={item.label}
             >

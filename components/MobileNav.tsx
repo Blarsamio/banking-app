@@ -14,6 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Footer from "./Footer";
+import PlaidLink from "./PlaidLink";
 
 const MobileNav = ({ user }: MobileNavProps) => {
   const pathname = usePathname();
@@ -29,14 +30,14 @@ const MobileNav = ({ user }: MobileNavProps) => {
             className="cursor-pointer"
           />
         </SheetTrigger>
-        <SheetContent side="left" className="border-none bg-white">
+        <SheetContent side="left" className="border-none bg-white dark">
           <div className="flex flex-col gap-4">
             <Link
               className="flex cursor-pointer items-center gap-1 px-4"
               href="/"
             >
               <Image src="icons/logo.svg" alt="logo" width={34} height={34} />
-              <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">
+              <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1 dark-header">
                 Horizon
               </h1>
             </Link>
@@ -51,7 +52,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
                       <SheetClose asChild key={item.route}>
                         <Link
                           className={cn("mobilenav-sheet_close w-full", {
-                            "bg-bank-gradient": isActive,
+                            "bg-bankGradient dark-bg dark-border": isActive,
                           })}
                           href={item.route}
                           key={item.label}
@@ -67,7 +68,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
                           />
                           <p
                             className={cn(
-                              "text-16 font-semibold text-black-2",
+                              "text-16 font-semibold text-black-2 dark-p",
                               {
                                 "!text-white": isActive,
                               }
@@ -80,7 +81,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
                     );
                   })}
 
-                  {/* USER */}
+                  <PlaidLink user={user} variant="primary" />
                 </nav>
               </SheetClose>
               <Footer user={user} type="mobile" />

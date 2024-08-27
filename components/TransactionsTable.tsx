@@ -32,7 +32,7 @@ const CategoryBadge = ({ category }: { category: string }) => {
 const TransactionsTable = ({ transactions }: TransactionTableProps) => {
   return (
     <Table>
-      <TableHeader className="bg-[#f9fafb] dark:bg-neutral-800 dark:text-white">
+      <TableHeader className="bg-[#f9fafb] dark-bg dark-header">
         <TableRow>
           <TableHead className="px-2">Transaction</TableHead>
           <TableHead className="px-2">Amount</TableHead>

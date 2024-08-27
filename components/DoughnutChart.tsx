@@ -18,7 +18,6 @@ const DoughnutChart = ({ accounts }: DoughnutChartProps) => {
       {
         label: "Balance",
         data: accountBalances,
-        borderColor: "#000",
         backgroundColor: isDarkMode
           ? ["#E5E5E5", "#2A2B2A", "#F8F4E3"] // Dark mode colors
           : ["#0747b6", "#2265d8", "#2f91fa"],
