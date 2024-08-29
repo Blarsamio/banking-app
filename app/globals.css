@@ -53,7 +53,7 @@
   }
 
   .input-class {
-    @apply text-16 placeholder:text-16 rounded-lg border border-gray-300 text-gray-900 placeholder:text-gray-500;
+    @apply text-16 placeholder:text-16 rounded-lg border border-gray-300 dark-border text-gray-900 placeholder:text-gray-500;
   }
 
   .sheet-content button {
@@ -196,12 +196,12 @@
 
   /* My Banks */
   .my-banks {
-    @apply flex h-screen max-h-screen w-full flex-col gap-8 bg-gray-25 p-8 xl:py-12;
+    @apply flex h-screen max-h-screen w-full flex-col gap-8 bg-gray-25 dark p-8 xl:py-12;
   }
 
   /* My Banks */
   .transactions {
-    @apply flex max-h-screen w-full flex-col gap-8 overflow-y-scroll bg-gray-25 p-8 xl:py-12;
+    @apply flex max-h-screen w-full flex-col gap-8 overflow-y-scroll bg-gray-25 dark p-8 xl:py-12;
   }
 
   .transactions-header {
@@ -209,11 +209,11 @@
   }
 
   .transactions-account {
-    @apply flex flex-col justify-between gap-4 rounded-lg border-y bg-blue-600 px-4 py-5 md:flex-row;
+    @apply flex flex-col justify-between gap-4 rounded-lg border-y dark-border bg-blue-600 dark-bg px-4 py-5 md:flex-row;
   }
 
   .transactions-account-balance {
-    @apply flex-center flex-col  gap-2 rounded-md bg-blue-25/20 px-4 py-2 text-white;
+    @apply flex-center flex-col  gap-2 rounded-md bg-blue-25/20 px-4 py-2 dark-border text-white;
   }
 
   .header-box {
@@ -238,7 +238,7 @@
   }
 
   .bank-card_icon {
-    @apply flex size-full flex-1 flex-col items-end justify-between rounded-r-[20px] bg-bankGradient bg-cover bg-center bg-no-repeat py-5 pr-5;
+    @apply flex size-full flex-1 flex-col items-end justify-between rounded-r-[20px] bg-bankGradient dark:bg-neutral-400 bg-cover bg-center bg-no-repeat py-5 pr-5;
   }
 
   /* Bank Info */
@@ -309,7 +309,7 @@
 
   /* Payment Transfer */
   .payment-transfer {
-    @apply no-scrollbar flex flex-col overflow-y-scroll bg-gray-25 p-8 md:max-h-screen xl:py-12;
+    @apply no-scrollbar flex flex-col overflow-y-scroll bg-gray-25 dark p-8 md:max-h-screen xl:py-12;
   }
 
   .payment-transfer_form-item {
@@ -321,7 +321,7 @@
   }
 
   .payment-transfer_form-details {
-    @apply flex flex-col gap-1 border-t border-gray-200 pb-5 pt-6;
+    @apply flex flex-col gap-1 border-t border-gray-200 dark:border-neutral-700 pb-5 pt-6;
   }
 
   .payment-transfer_btn-box {
@@ -329,7 +329,7 @@
   }
 
   .payment-transfer_btn {
-    @apply text-14 w-full bg-bank-gradient font-semibold text-white shadow-form !important;
+    @apply text-14 w-full bg-bankGradient dark:bg-neutral-800 dark:border dark:border-neutral-700 font-semibold text-white shadow-form !important;
   }
 
   /* Root Layout */

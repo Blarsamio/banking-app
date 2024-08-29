@@ -60,18 +60,18 @@ export const BankDropdown = ({
         align="end"
       >
         <SelectGroup>
-          <SelectLabel className="py-2 font-normal text-gray-500">
+          <SelectLabel className="py-2 font-normal text-gray-500 dark-p">
             Select a bank to display
           </SelectLabel>
           {accounts.map((account: Account) => (
             <SelectItem
               key={account.id}
               value={account.appwriteItemId}
-              className="cursor-pointer border-t"
+              className="cursor-pointer border-t dark:border-neutral-700 dark:hover:bg-neutral-700"
             >
-              <div className="flex flex-col ">
-                <p className="text-16 font-medium">{account.name}</p>
-                <p className="text-14 font-medium text-blue-600">
+              <div className="flex flex-col">
+                <p className="text-16 font-medium dark-p">{account.name}</p>
+                <p className="text-14 font-medium text-blue-600 dark-header">
                   {formatAmount(account.currentBalance)}
                 </p>
               </div>
