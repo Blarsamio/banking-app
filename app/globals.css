@@ -279,7 +279,7 @@
 
   /* Auth */
   .auth-asset {
-    @apply flex h-screen w-full sticky top-0 items-center justify-end bg-sky-1 max-lg:hidden;
+    @apply flex h-screen w-full sticky top-0 items-center justify-end bg-sky-1 dark-bg max-lg:hidden;
   }
 
   /* Auth Form */
@@ -292,7 +292,7 @@
   }
 
   .form-label {
-    @apply text-14 w-full max-w-[280px] font-medium text-gray-700;
+    @apply text-14 w-full max-w-[280px] font-medium text-gray-700 dark-p;
   }
 
   .form-message {
@@ -300,7 +300,7 @@
   }
 
   .form-btn {
-    @apply text-16 rounded-lg border border-bankGradient bg-bank-gradient font-semibold text-white shadow-form;
+    @apply text-16 rounded-lg border border-bankGradient dark-bg dark-border font-semibold text-white shadow-form;
   }
 
   .form-link {

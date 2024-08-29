@@ -46,7 +46,7 @@ export const CustomFormInput = ({
             <FormControl>
               <Input
                 placeholder={placeholder}
-                className="input-class"
+                className="input-class dark-bg dark-border placeholder:text-neutral-400"
                 type={name === "password" ? "password" : "text"}
                 {...field}
               />
@@ -80,19 +80,19 @@ export const CustomDateInput = ({
                 <Button
                   variant={"outline"}
                   className={cn(
-                    "w-full justify-start text-left text-16 text-gray-500 rounded-lg border border-gray-300",
-                    !date && "text-gray-500"
+                    "w-full justify-start text-left text-16 dark-bg dark:text-neutral-400 dark-border text-gray-500 rounded-lg border border-gray-300",
+                    !date && "text-gray-500 dark-p"
                   )}
                 >
-                  <CalendarIcon className="mr-2 h-4 w-4 text-gray-500" />
+                  <CalendarIcon className="mr-2 h-4 w-4 text-gray-500 dark-p" />
                   {date ? (
                     format(parse(date, "yyyy-MM-dd", new Date()), "PPP")
                   ) : (
-                    <span className="text-gray-500">{placeholder}</span>
+                    <span className="text-gray-500 dark-p">{placeholder}</span>
                   )}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
+              <PopoverContent className="w-auto p-0 dark-border" align="start">
                 <Calendar
                   mode="single"
                   captionLayout="dropdown-buttons"
@@ -110,7 +110,7 @@ export const CustomDateInput = ({
                   }}
                   initialFocus
                   disabled={false}
-                  className="bg-white text-gray-500"
+                  className="bg-white dark-p text-gray-500 dark-bg"
                 />
               </PopoverContent>
             </Popover>
